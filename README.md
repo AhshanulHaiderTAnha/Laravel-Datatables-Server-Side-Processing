@@ -62,3 +62,39 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+Step-1
+composer create-project --prefer-dist laravel/laravel blog
+Step-2
+composer require yajra/laravel-datatables-oracle
+Step -3 (config/app.php)
+.....
+
+'providers' => [
+
+	....
+
+	Yajra\DataTables\DataTablesServiceProvider::class,
+
+]
+
+'aliases' => [
+
+	....
+
+	'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+
+]
+Step-4 (routes/web.php)
+Route::get('users', ['uses'=>'UserController@index', 'as'=>'users.index']);
+Step-5 (In this point, now we should create new controller as UserController. this controller will manage layout and getting data request and return response, so put bellow content in controller file:)
+app/Http/Controllers/UserController.php
+
+Step-6 (resources/views/users.blade.php)
+Step-7 
+php artisan serve
+
+
+
+
